@@ -1,8 +1,9 @@
 import React from "react";
+import { Text,} from "react-native";
 
 interface ResendEmailProps {}
 
 const ResendEmail: React.FC<ResendEmailProps> = ({}) => {
-  return <div>ResendEmail</div>;
+  return <Text>ResendEmail</Text>;
 };
 export default ResendEmail;
