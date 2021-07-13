@@ -7,6 +7,8 @@ import firebase from "../apis/firebase";
 import "firebase/auth";
 import { NAMES } from "../const/names";
 
+// TODO : implement react native firebase for ios and android
+
 interface SignInProps {}
 export const SignIn: React.FC<SignInProps> = ({}) => {
 

@@ -75,4 +75,3 @@ const Index: React.FC<IndexProps> = ({}) => {
 };
 export default Index;
 
-// todo: style drawer https://zenn.dev/takanori_is/articles/build-slide-menu-with-expo-and-react-navigation
