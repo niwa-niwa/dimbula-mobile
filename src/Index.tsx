@@ -6,6 +6,7 @@ import { SignIn } from "./sign/SignIn";
 import SignUp from "./sign/SignUp";
 import ResendEmail from "./sign/ResendEmail";
 import ForgetPw from "./sign/ForgetPw";
+import { TaskFolder } from "./task/TaskFolder";
 
 const Drawer = createDrawerNavigator();
 
@@ -13,12 +14,12 @@ interface AuthViewProps {}
 const AuthStack = createStackNavigator<any>();
 const AuthView: React.FC<AuthViewProps> = ({}) => {
   return (
-    <AuthStack.Navigator initialRouteName="SignIn">
+    <AuthStack.Navigator initialRouteName="TaskFolder">
       <Drawer.Screen
-        name="SignIn"
-        component={SignIn}
+        name="TaskFolder"
+        component={TaskFolder}
         options={{
-          headerTitle: "Sign In",
+          headerShown: false,
         }}
       />
     </AuthStack.Navigator>
@@ -66,8 +67,9 @@ interface IndexProps {}
 const Index: React.FC<IndexProps> = ({}) => {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Guest">
+      <Drawer.Navigator initialRouteName="Auth">
         <Drawer.Screen component={GuestView} name="Guest" />
+        <Drawer.Screen component={AuthView} name="Auth" />
         {/* <GuestView /> */}
       </Drawer.Navigator>
     </NavigationContainer>
