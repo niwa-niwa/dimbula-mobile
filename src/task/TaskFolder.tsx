@@ -11,8 +11,6 @@ import {
 // import { Platform } from 'react-native';
 // const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical';
 
-// Todo : add task list view
-
 interface TaskFolderProps {
   navigation: any;
 }
@@ -52,7 +50,7 @@ export const TaskFolder: React.FC<TaskFolderProps> = ({ navigation }) => {
       </Appbar.Header>
 
       <LocalDialog />
-      
+
       <List.Item
         title="First Item"
         description="date - date"
