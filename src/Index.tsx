@@ -7,6 +7,7 @@ import SignUp from "./sign/SignUp";
 import ResendEmail from "./sign/ResendEmail";
 import ForgetPw from "./sign/ForgetPw";
 import { TaskFolder } from "./task/TaskFolder";
+import { TaskList } from "./task/TaskList";
 
 const Drawer = createDrawerNavigator();
 
@@ -15,9 +16,16 @@ const AuthStack = createStackNavigator<any>();
 const AuthView: React.FC<AuthViewProps> = ({}) => {
   return (
     <AuthStack.Navigator initialRouteName="TaskFolder">
-      <Drawer.Screen
+      <AuthStack.Screen
         name="TaskFolder"
         component={TaskFolder}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <AuthStack.Screen
+        name="TaskList"
+        component={TaskList}
         options={{
           headerShown: false,
         }}
