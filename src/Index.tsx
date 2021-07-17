@@ -75,7 +75,7 @@ interface IndexProps {}
 const Index: React.FC<IndexProps> = ({}) => {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Auth">
+      <Drawer.Navigator initialRouteName="Guest">
         <Drawer.Screen component={GuestView} name="Guest" />
         <Drawer.Screen component={AuthView} name="Auth" />
         {/* <GuestView /> */}

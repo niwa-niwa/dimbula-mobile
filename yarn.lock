@@ -1728,6 +1728,14 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha1-p3c2C1s5oaLlEG+OhY8v0tBgxXA=
 
+"@react-firebase/auth@^0.2.10":
+  version "0.2.10"
+  resolved "https://registry.yarnpkg.com/@react-firebase/auth/-/auth-0.2.10.tgz#1f58a6c9dd7f89ec1ca03d0620929f1a6bac9c82"
+  integrity sha512-qeRv96HI5Y3nPRwO3Zi4QnYYeJstVu8lDih+QQbTeuadUUngchGw5Tp7dseOY5u3q/+e+kF2hV7BUkfYt7FS8g==
+  dependencies:
+    lodash.get "^4.4.2"
+    render-and-add-props "^0.5.0"
+
 "@react-native-community/cli-debugger-ui@^4.13.1":
   version "4.13.1"
   resolved "https://registry.yarnpkg.com/@react-native-community/cli-debugger-ui/-/cli-debugger-ui-4.13.1.tgz#07de6d4dab80ec49231de1f1fbf658b4ad39b32c"
@@ -3230,6 +3238,14 @@ expo-font@~9.2.1:
     expo-modules-core "~0.2.0"
     fontfaceobserver "^2.1.0"
 
+expo-google-sign-in@~9.2.1:
+  version "9.2.1"
+  resolved "https://registry.yarnpkg.com/expo-google-sign-in/-/expo-google-sign-in-9.2.1.tgz#6011af58bb271891d379dd50569409ccef5484ac"
+  integrity sha512-Iepx54lfg/VZne8oI8Rv6wZdEYlhvHG824qgpZJ69bhnOb1MK8LrR3QTRC39Mj7qcRx2fj0FqOLMGKM13eSRnQ==
+  dependencies:
+    expo-modules-core "~0.2.0"
+    invariant "^2.2.4"
+
 expo-keep-awake@~9.2.0:
   version "9.2.0"
   resolved "https://registry.yarnpkg.com/expo-keep-awake/-/expo-keep-awake-9.2.0.tgz#9cbdcc8264c943ef29a58326236cd34267e98f43"
@@ -3532,7 +3548,7 @@ find-up@~5.0.0:
     locate-path "^6.0.0"
     path-exists "^4.0.0"
 
-firebase@*:
+firebase@*, firebase@^8.7.1:
   version "8.7.1"
   resolved "https://registry.yarnpkg.com/firebase/-/firebase-8.7.1.tgz#b22ce063c4df16d849c0160662e6fcf6bc396f32"
   integrity sha512-OM+pUxIAqd5+XQMGux8InhhWmHDqlzQij67ljomMNblrxGiFOh8bMe+DGU9r8dh7CDaBYNtT6L0KR859BqhkDQ==
@@ -4343,6 +4359,11 @@ lodash.frompairs@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/lodash.frompairs/-/lodash.frompairs-4.0.1.tgz#bc4e5207fa2757c136e573614e9664506b2b1bd2"
   integrity sha1-vE5SB/onV8E25XNhTpZkUGsrG9I=
+
+lodash.get@^4.4.2:
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
+  integrity sha1-LRd/ZS+jHpObRDjVNBSZ36OCXpk=
 
 lodash.isequal@^4.5.0:
   version "4.5.0"
@@ -5540,6 +5561,11 @@ remove-trailing-separator@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/remove-trailing-separator/-/remove-trailing-separator-1.1.0.tgz#c24bce2a283adad5bc3f58e0d48249b92379d8ef"
   integrity sha1-wkvOKig62tW8P1jg1IJJuSN52O8=
+
+render-and-add-props@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/render-and-add-props/-/render-and-add-props-0.5.0.tgz#79e35b2251936ec187188322826e56401c2ef70b"
+  integrity sha512-jIVQsWxGDHwpMcI0d9w6OxF/GCtwL02Lyqk8aGjyF6LyR9GPLY+1ONwPjs6kbQ2d6gTApWk8aprZkBli0tpG/w==
 
 repeat-element@^1.1.2:
   version "1.1.4"
