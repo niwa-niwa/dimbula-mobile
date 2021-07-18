@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, TextInput, Button, Alert, StyleSheet } from "react-native";
+import { Text, View, TextInput, StyleSheet } from "react-native";
 import { Button as PaperButton } from 'react-native-paper';
 import styled from "styled-components/native";
 import { Center } from "../layouts/Center";
@@ -45,9 +45,6 @@ export const SignIn: React.FC<SignInProps> = ({}) => {
   return (
     <Center>
       <H1_Text>{NAMES.TITLE}</H1_Text>
-        {/* <PaperButton onPress={onPressEmail} mode="outlined">
-          Sign In With Email
-        </PaperButton> */}
         <Controller
           control={control}
           rules={{
@@ -82,7 +79,13 @@ export const SignIn: React.FC<SignInProps> = ({}) => {
           defaultValue=""
         />
 
-      <Button title="Submit" onPress={handleSubmit(onSubmit)} />
+      <PaperButton onPress={handleSubmit(onSubmit)} mode="outlined">
+        Submit
+      </PaperButton>
+
+      <PaperButton onPress={onPressEmail} mode="outlined">
+        Sign In With Email
+      </PaperButton>
     </Center>
   );
 
@@ -98,9 +101,12 @@ interface Styles{
 };
 const styles= StyleSheet.create<Styles>({
   input:{
-    borderStyle:"solid",
-    width:100,
-    height:32,
-    backgroundColor:"green"
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 6,
+    backgroundColor: "#eee",
+    width:"80%",
+    height:48,
+    // backgroundColor:"green"
   }
 })
