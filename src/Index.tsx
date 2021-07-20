@@ -43,7 +43,7 @@ const GuestView: React.FC<GuestViewProps> = ({}) => {
         name="SignIn"
         component={SignIn}
         options={{
-          headerTitle: "Sign In",
+          headerShown: false,
         }}
       />
       <GuestStack.Screen
