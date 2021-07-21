@@ -117,9 +117,9 @@ export const SignIn: React.FC<SignInProps> = ({ navigation }) => {
           </PaperButton>
         </View>
 
-        {/* <PaperButton onPress={onPressEmail} mode="outlined">
+        <PaperButton onPress={onPressEmail} mode="outlined">
           Sign In With Email
-        </PaperButton> */}
+        </PaperButton>
       </View>
     </Center>
   );

@@ -1,4 +1,6 @@
 import React from "react";
+import firebase from "../apis/firebase";
+
 import { ScrollView } from "react-native";
 import {
   Appbar,
@@ -46,7 +48,7 @@ export const TaskFolder: React.FC<TaskFolderProps> = ({ navigation }) => {
       <Appbar.Header>
         <Appbar.Content title="Task Folders" />
         {/* <Appbar.Action icon="magnify" onPress={() => {}} /> */}
-        <Appbar.Action icon="plus" onPress={() => {}} />
+        <Appbar.Action icon="plus" onPress={() => {firebase.auth().signOut()}} />
       </Appbar.Header>
 
       <LocalDialog />

@@ -73,20 +73,23 @@ const GuestView: React.FC<GuestViewProps> = ({}) => {
   );
 };
 
+// TODO : implemented firebase auth with Redux
 interface IndexProps {}
 const Index: React.FC<IndexProps> = ({}) => {
+  const [user, setUser] = React.useState<any | null>(null)
+
   React.useEffect(() => {
-    firebase.auth().onAuthStateChanged(async (user) => {
-      console.log(user);
+    firebase.auth().onAuthStateChanged(async (_user) => {
+      setUser(_user)
+      user && console.log(user.uid)
     });
   }, []);
 
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Guest">
+      <Drawer.Navigator initialRouteName={user ? "Auth" : "Guest"}>
         <Drawer.Screen component={GuestView} name="Guest" />
         <Drawer.Screen component={AuthView} name="Auth" />
-        {/* <GuestView /> */}
       </Drawer.Navigator>
     </NavigationContainer>
   );
