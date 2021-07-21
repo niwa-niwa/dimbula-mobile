@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { SignIn } from "./sign/SignIn";
-import SignUp from "./sign/SignUp";
+import { SignUp } from "./sign/SignUp";
 import ResendEmail from "./sign/ResendEmail";
 import ForgetPw from "./sign/ForgetPw";
 import { TaskFolder } from "./task/TaskFolder";
@@ -50,21 +50,21 @@ const GuestView: React.FC<GuestViewProps> = ({}) => {
         name="SignUp"
         component={SignUp}
         options={{
-          headerTitle: "Sign Up",
+          headerShown: false,
         }}
       />
       <GuestStack.Screen
         name="ResendEmail"
         component={ResendEmail}
         options={{
-          headerTitle: "Resend Email",
+          headerShown: false,
         }}
       />
       <GuestStack.Screen
         name="ForgetPw"
         component={ForgetPw}
         options={{
-          headerTitle: "Forget Password",
+          headerShown: false,
         }}
       />
     </GuestStack.Navigator>
