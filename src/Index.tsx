@@ -5,7 +5,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { SignIn } from "./sign/SignIn";
 import { SignUp } from "./sign/SignUp";
 import ResendEmail from "./sign/ResendEmail";
-import ForgetPw from "./sign/ForgetPw";
+import { ForgetPw } from "./sign/ForgetPw";
 import { TaskFolder } from "./task/TaskFolder";
 import { TaskList } from "./task/TaskList";
 
