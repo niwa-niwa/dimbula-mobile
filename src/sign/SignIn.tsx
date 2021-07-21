@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, TextInput, StyleSheet } from "react-native";
+import { Text, View, } from "react-native";
 import {
   Button as PaperButton,
   TextInput as PaperInput,
@@ -10,13 +10,16 @@ import firebase from "../apis/firebase";
 import "firebase/auth";
 import { NAMES } from "../const/names";
 import { useForm, Controller } from "react-hook-form";
+import { Sign_Styles } from './Sign_Styles';
 
 // TODO : implement SignUp.tsx without google auth
 // TODO : implement ResendEmail.tsx without google auth
 // TODO : implement ForgetPw.tsx without google auth
 
-interface SignInProps {}
-export const SignIn: React.FC<SignInProps> = ({}) => {
+interface SignInProps {
+  navigation:any
+}
+export const SignIn: React.FC<SignInProps> = ({ navigation }) => {
   const {
     control,
     handleSubmit,
@@ -104,19 +107,19 @@ export const SignIn: React.FC<SignInProps> = ({}) => {
         <View style={Sign_Styles.links_wrapper}>
           <PaperButton
             style={Sign_Styles.link_button}
-            onPress={() => console.log("sign up")}
+            onPress={() => navigation.navigate("SignUp")}
           >
             Sign Up
           </PaperButton>
           <PaperButton
             style={Sign_Styles.link_button}
-            onPress={() => console.log("forget your password")}
+            onPress={() => navigation.navigate("ForgetPw")}
           >
             Forget Your Password
           </PaperButton>
           <PaperButton
             style={Sign_Styles.link_button}
-            onPress={() => console.log("resend email")}
+            onPress={() => navigation.navigate("ResendEmail")}
           >
             Resend E-mail
           </PaperButton>
@@ -130,47 +133,47 @@ export const SignIn: React.FC<SignInProps> = ({}) => {
   );
 };
 
-interface SignStylesProps {
-  sign_wrapper: object;
-  input: object;
-  main_title: object;
-  sub_title: object;
-  submit_button: object;
-  divider: object;
-  links_wrapper: object;
-  link_button: object;
-}
-const Sign_Styles = StyleSheet.create<SignStylesProps>({
-  sign_wrapper: {
-    width: "100%",
-    padding: 12,
-  },
-  input: {
-    width: "100%",
-    height: 48,
-    marginBottom: 12,
-  },
-  main_title: {
-    position: "absolute",
-    fontSize: 32,
-    fontWeight: "bold",
-    top: 64,
-  },
-  sub_title: {
-    width: "100%",
-    textAlign: "left",
-    fontSize: 24,
-    marginBottom: 12,
-  },
-  submit_button: {
-    width: "100%",
-    marginBottom: 12,
-  },
-  divider: { margin: 20 },
-  links_wrapper: {
-    alignItems: "flex-end",
-  },
-  link_button: {
-    marginBottom: 12,
-  },
-});
+// interface SignStylesProps {
+//   sign_wrapper: object;
+//   input: object;
+//   main_title: object;
+//   sub_title: object;
+//   submit_button: object;
+//   divider: object;
+//   links_wrapper: object;
+//   link_button: object;
+// }
+// const Sign_Styles = StyleSheet.create<SignStylesProps>({
+//   sign_wrapper: {
+//     width: "100%",
+//     padding: 12,
+//   },
+//   input: {
+//     width: "100%",
+//     height: 48,
+//     marginBottom: 12,
+//   },
+//   main_title: {
+//     position: "absolute",
+//     fontSize: 32,
+//     fontWeight: "bold",
+//     top: 64,
+//   },
+//   sub_title: {
+//     width: "100%",
+//     textAlign: "left",
+//     fontSize: 24,
+//     marginBottom: 12,
+//   },
+//   submit_button: {
+//     width: "100%",
+//     marginBottom: 12,
+//   },
+//   divider: { margin: 20 },
+//   links_wrapper: {
+//     alignItems: "flex-end",
+//   },
+//   link_button: {
+//     marginBottom: 12,
+//   },
+// });
