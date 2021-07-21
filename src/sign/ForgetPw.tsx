@@ -10,25 +10,20 @@ import firebase from "../apis/firebase";
 import "firebase/auth";
 import { NAMES } from "../const/names";
 import { useForm, Controller } from "react-hook-form";
-import { Sign_Styles } from './Sign_Styles';
-
+import { Sign_Styles } from "./Sign_Styles";
 
 interface ForgetPwProps {
-  navigation:any
+  navigation: any;
 }
+
 export const ForgetPw: React.FC<ForgetPwProps> = ({ navigation }) => {
   const {
     control,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data: any) => console.log(data);
 
-  React.useEffect(() => {
-    firebase.auth().onAuthStateChanged(async (user) => {
-      // console.log(user);
-    });
-  }, []);
+  const onSubmit = (data: any) => console.log(data);
 
   const onPressEmail = (): void => {
     firebase
@@ -103,7 +98,6 @@ export const ForgetPw: React.FC<ForgetPwProps> = ({ navigation }) => {
             Resend E-mail
           </PaperButton>
         </View>
-
       </View>
     </Center>
   );

@@ -22,13 +22,8 @@ export const ResendEmail: React.FC<ResendEmailProps> = ({ navigation }) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data: any) => console.log(data);
 
-  React.useEffect(() => {
-    firebase.auth().onAuthStateChanged(async (user) => {
-      // console.log(user);
-    });
-  }, []);
+  const onSubmit = (data: any) => console.log(data);
 
   const onPressEmail = (): void => {
     firebase

@@ -1,4 +1,6 @@
 import React from "react";
+import firebase from "./apis/firebase";
+import "firebase/auth";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
@@ -73,6 +75,12 @@ const GuestView: React.FC<GuestViewProps> = ({}) => {
 
 interface IndexProps {}
 const Index: React.FC<IndexProps> = ({}) => {
+  React.useEffect(() => {
+    firebase.auth().onAuthStateChanged(async (user) => {
+      console.log(user);
+    });
+  }, []);
+
   return (
     <NavigationContainer>
       <Drawer.Navigator initialRouteName="Guest">
@@ -84,4 +92,3 @@ const Index: React.FC<IndexProps> = ({}) => {
   );
 };
 export default Index;
-
