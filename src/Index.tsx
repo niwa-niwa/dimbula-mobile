@@ -1,4 +1,5 @@
 import React from "react";
+import { Text } from 'react-native';
 import firebase from "./apis/firebase";
 import "firebase/auth";
 import { NavigationContainer } from "@react-navigation/native";
@@ -76,22 +77,78 @@ const GuestView: React.FC<GuestViewProps> = ({}) => {
 // TODO : implemented firebase auth with Redux
 interface IndexProps {}
 const Index: React.FC<IndexProps> = ({}) => {
-  const [user, setUser] = React.useState<any | null>(null)
+  const auth: firebase.auth.Auth = firebase.auth();
+  const [user, setUser] = React.useState<firebase.User | null>(null)
+  const [isLoading, setIsLoading] = React.useState<boolean>(true); // the flag is loading user state
 
   React.useEffect(() => {
-    firebase.auth().onAuthStateChanged(async (_user) => {
-      setUser(_user)
-      user && console.log(user.uid)
-    });
+    let isMounted :boolean = true; // the flag is prevented to leak memory
+
+    const effect = async () => {
+      auth.onAuthStateChanged(async ( _user: firebase.User | null ) => {
+        if (!_user) {
+          console.log("user is null");
+        }
+
+        if (_user && !_user.emailVerified) {
+          // Confirm the account is valid with dimbula backend
+          console.log("You have to confirm our Email.")
+        }
+
+        if (_user && _user.emailVerified) {
+          const token:any = await _user.getIdToken(true);
+          setUser(_user);
+          console.log(token, "= token")
+          // Redux function
+          // const signIn = () =>
+          //   new Promise((resolve) => {
+          //     resolve(
+          //       dispatch(
+          //         asyncSignIn({ token, refreshToken: user.refreshToken })
+          //       )
+          //     );
+          //   });
+          // const response = await signIn();
+
+          // if (response.type === "user/signin/rejected") {
+          //   dispatch(signOut());
+          //   dispatch(
+          //     setSnackBar({
+          //       severity: "error",
+          //       message: "Something is wrong.",
+          //     })
+          //   );
+          // }
+        }
+
+        if (isMounted) {
+          setIsLoading(false);
+        }
+      });
+    };
+    effect();
+  
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName={user ? "Auth" : "Guest"}>
-        <Drawer.Screen component={GuestView} name="Guest" />
-        <Drawer.Screen component={AuthView} name="Auth" />
-      </Drawer.Navigator>
-    </NavigationContainer>
+      { isLoading
+        ? 
+          <Text>Now Loading...</Text>
+        :
+          <Drawer.Navigator >
+            { user 
+              ?
+                <Drawer.Screen component={AuthView} name="Auth" />
+              :
+                <Drawer.Screen component={GuestView} name="Guest" />
+            }
+          </Drawer.Navigator>
+      }
+    </NavigationContainer> 
   );
 };
 export default Index;
